@@ -24,16 +24,13 @@ namespace Project1.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         [HttpGet]
         public IActionResult Form()
         {
             ViewBag.Categories = BlahContext.Categories.ToList();
             return View();
         }
+
         [HttpPost]
         public IActionResult Form(TaskResponse add)
         {
@@ -50,14 +47,17 @@ namespace Project1.Controllers
             }
             
         }
+
         public IActionResult ViewTasks()
         {
             var applications = BlahContext.Responses
+                    .Where(a => a.Completed == false)
                     .Include(x => x.Category)
                     .ToList();
 
             return View(applications);
         }
+
         [HttpGet]
         public IActionResult Edit(int taskid)
         {
@@ -65,6 +65,7 @@ namespace Project1.Controllers
             var application = BlahContext.Responses.Single(x => x.TaskId == taskid);
             return View("Form", application);
         }
+
         [HttpPost]
         public IActionResult Edit(TaskResponse tr)
         {
@@ -72,15 +73,19 @@ namespace Project1.Controllers
             BlahContext.SaveChanges();
             return RedirectToAction("ViewTasks");
         }
+
         [HttpGet]
         public IActionResult Delete(int taskid)
         {
-            var application = BlahContext.Responses.Single(x => x.TaskId == taskid);
+            var application = BlahContext.Responses
+                .Single(x => x.TaskId == taskid);
             return View("Delete", application);
         }
+
         [HttpPost]
         public IActionResult Delete(TaskResponse tr)
         {
+
             BlahContext.Responses.Remove(tr);
             BlahContext.SaveChanges();
 
