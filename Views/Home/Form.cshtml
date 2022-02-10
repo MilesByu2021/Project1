@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Create A Task";
+}
+@model Project1.Models.TaskResponse
+<div>
+    <form method="post">
+        <label asp-for="TaskId">TaskId: </label>
+        <input asp-for="TaskId" /><br />
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" /><br />
+        <label asp-for="DueDate">Due Date: </label>
+        <input asp-for="DueDate" type="datetime-local" /><br />
+        <label asp-for="Quadrant">Quadrant: </label>
+        <select asp-for="Quadrant">
+            <option></option>
+            <option>I</option>
+            <option>II</option>
+            <option>III</option>
+            <option>IV</option>
+        </select><br />
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option></option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value=@c.CategoryId>@c.CategoryName</option>
+            }
+        </select><br />
+        <label>Completed: </label>
+        <select>
+            <option></option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
+        <div asp-validation-summary="All"></div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+    <h1>Are you sure?</h1>
+    <button asp-controller="Home" asp-action="Delete">Yes</button>
+    <a asp-controller="Home" asp-action="ViewTasks">No</a>
+</form>
