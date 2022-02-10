@@ -3,45 +3,198 @@
 }
 @model List<TaskResponse>
 
-<table class="table table-bordered table-primary table-striped">
+<div class="container">
 
-    <thead class="font-weight-bold">
+    <div class="row">
+        <div class="col-6">
+            <h3>Quadrant 1</h3>
+            <table class="table table-bordered table-primary table-striped">
 
-        <tr>
-            <td>TaskId</td>
+                <thead class="font-weight-bold">
 
-            <td>Task</td>
+                    <tr>
+                        <td>TaskId</td>
 
-            <td>DueDate</td>
+                        <td>Task</td>
 
-            <td>Quadrant</td>
+                        <td>DueDate</td>
 
-            <td>Completed</td>
+                        <td>Quadrant</td>
 
-            <td>Category</td>
-        </tr>
+                        <td>Completed</td>
 
-    </thead>
+                        <td>Category</td>
+                    </tr>
 
-    <tbody>
-        @foreach (var x in Model)
-        {
-        <tr>
-            <td>@x.TaskId</td>
+                </thead>
 
-            <td>@x.Task</td>
+                <tbody>
+                    @foreach (var x in Model.Where(x => x.Quadrant == "I"))
+                    {
+                        <tr>
+                            <td>@x.TaskId</td>
 
-            <td>@x.DueDate</td>
+                            <td>@x.Task</td>
 
-            <td>@x.Quadrant</td>
+                            <td>@x.DueDate</td>
 
-            <td>@x.Completed</td>
+                            <td>@x.Quadrant</td>
 
-            <td>@x.Category.CategoryName</td>
+                            <td>@x.Completed</td>
 
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
-        </tr>
-        }
-    </tbody>
-</table>
+                            <td>@x.Category.CategoryName</td>
+
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <h3>Quadrant 2</h3>
+            <table class="table table-bordered table-primary table-striped">
+
+                <thead class="font-weight-bold">
+
+                    <tr>
+                        <td>TaskId</td>
+
+                        <td>Task</td>
+
+                        <td>DueDate</td>
+
+                        <td>Quadrant</td>
+
+                        <td>Completed</td>
+
+                        <td>Category</td>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach (var x in Model.Where(x => x.Quadrant == "II"))
+                    {
+                        <tr>
+                            <td>@x.TaskId</td>
+
+                            <td>@x.Task</td>
+
+                            <td>@x.DueDate</td>
+
+                            <td>@x.Quadrant</td>
+
+                            <td>@x.Completed</td>
+
+                            <td>@x.Category.CategoryName</td>
+
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-6">
+                <h3>Quadrant 3</h3>
+                <table class="table table-bordered table-primary table-striped">
+
+                    <thead class="font-weight-bold">
+
+                        <tr>
+                            <td>TaskId</td>
+
+                            <td>Task</td>
+
+                            <td>DueDate</td>
+
+                            <td>Quadrant</td>
+
+                            <td>Completed</td>
+
+                            <td>Category</td>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        @foreach (var x in Model.Where(x => x.Quadrant == "III"))
+                        {
+                            <tr>
+                                <td>@x.TaskId</td>
+
+                                <td>@x.Task</td>
+
+                                <td>@x.DueDate</td>
+
+                                <td>@x.Quadrant</td>
+
+                                <td>@x.Completed</td>
+
+                                <td>@x.Category.CategoryName</td>
+
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <h3>Quadrant 4</h3>
+            <table class="table table-bordered table-primary table-striped">
+
+                <thead class="font-weight-bold">
+
+                    <tr>
+                        <td>TaskId</td>
+
+                        <td>Task</td>
+
+                        <td>DueDate</td>
+
+                        <td>Quadrant</td>
+
+                        <td>Completed</td>
+
+                        <td>Category</td>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach (var x in Model.Where(x => x.Quadrant == "IV"))
+                    {
+                        <tr>
+                            <td>@x.TaskId</td>
+
+                            <td>@x.Task</td>
+
+                            <td>@x.DueDate</td>
+
+                            <td>@x.Quadrant</td>
+
+                            <td>@x.Completed</td>
+
+                            <td>@x.Category.CategoryName</td>
+
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+ </div>
